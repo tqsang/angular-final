@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="wrapper">
+    <div class="login__left"><img src="assets/img/logo-login.svg" /></div>
+    <div class="login__right">
+      <h1>LOGIN</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="input__group">
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input
+                matInput
+                id="email"
+                name="email"
+                type="text"
+                placeholder="Type your email..."
+                formControlName="email"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="input__group">
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Type your password..."
+                formControlName="password"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="input__group">
+          <mat-checkbox class="example-margin">Remember me</mat-checkbox>
+        </div>
+        <div class="wrapper__button">
+          <button
+            type="submit"
+            class="button save"
+            [disabled]="loginForm.valid"
+          >
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
