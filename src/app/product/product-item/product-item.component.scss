@@ -1,0 +1,22 @@
+.example-card {
+  margin-bottom: 30px;
+  cursor: pointer;
+
+  font-family: "Poppins";
+
+  h2 {
+    margin-bottom: 8px;
+  }
+  h3 {
+    color: aquamarine;
+    font-weight: 700;
+  }
+  .mat-button {
+    text-transform: uppercase;
+  }
+  .mat-card-content {
+    margin: 0px;
+  }
+  .mat-card-actions {
+  }
+}
