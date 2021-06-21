@@ -1,0 +1,91 @@
+$primary: #1d3557;
+$secondary: #457b9d;
+@mixin button {
+  width: 80px;
+  margin-right: 10px;
+  padding: 5px 10px;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+.create {
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.pagination {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+.container {
+  margin-top: 100px;
+  .group {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    .mat-form-field {
+      width: 500px;
+    }
+  }
+  h1 {
+    font-family: "Poppins";
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .wrapper {
+    display: flex;
+    transition: all 0.3s ease-in-out;
+    table {
+      width: 100%;
+      box-shadow: 0px 16px 40px rgba(37, 68, 99, 0.1);
+      thead {
+        tr {
+          border-bottom: 1px solid #d2d6da;
+
+          th {
+            color: $primary;
+            text-transform: uppercase;
+            padding: 10px 10px;
+          }
+        }
+      }
+      tbody {
+        tr {
+          border-bottom: 1px solid #d2d6da;
+          td {
+            padding: 10px 10px;
+            img {
+              border-radius: 4px;
+            }
+          }
+
+          :nth-child(3) {
+            max-width: 100px;
+          }
+        }
+      }
+
+      .function {
+        width: auto;
+        margin-left: 16px;
+        margin-bottom: 10px;
+        .edit {
+          @include button();
+          background-color: $primary;
+          &:hover {
+            background-color: $secondary;
+          }
+        }
+        .delete {
+          @include button();
+          background-color: #e63946;
+          &:hover {
+            background-color: #e76f51;
+          }
+        }
+      }
+    }
+  }
+}

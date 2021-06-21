@@ -1,0 +1,144 @@
+$primary: #1d3557;
+$secondary: #457b9d;
+
+@mixin opacity {
+  width: 100%;
+  height: 60%;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  position: absolute;
+  bottom: -60%;
+
+  padding: 20px 0px 0px 20px;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+
+  h2 {
+    color: white;
+    text-transform: uppercase;
+  }
+  p {
+    color: white;
+  }
+  .discover {
+    padding: 10px 30px;
+    border-radius: 4px;
+    border: none;
+    background-color: $primary;
+    font-family: "Poppins";
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 0.04em;
+
+    cursor: pointer;
+
+    &:hover {
+      background: $secondary;
+    }
+  }
+}
+.wrapper {
+  width: 100%;
+  height: 700px;
+  display: flex;
+
+  padding: 70px 30px 40px 30px;
+
+  .content__left {
+    width: 70%;
+    height: 100%;
+
+    &__top {
+      width: 100%;
+      height: 50%;
+      margin-bottom: 10px;
+      position: relative;
+      overflow: hidden;
+
+      .opacity {
+        @include opacity();
+      }
+
+      &:hover .opacity {
+        transition: all 0.3s ease-in-out;
+
+        bottom: 0;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &__bottom {
+      width: 100%;
+      display: flex;
+      height: calc(50% - 10px);
+      &__left {
+        width: 30%;
+        height: 100%;
+        margin-right: 10px;
+        position: relative;
+        overflow: hidden;
+        .opacity {
+          @include opacity();
+        }
+
+        &:hover .opacity {
+          transition: all 0.3s ease-in-out;
+
+          bottom: 0;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      &__right {
+        width: 70%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        .opacity {
+          @include opacity();
+        }
+
+        &:hover .opacity {
+          transition: all 0.3s ease-in-out;
+
+          bottom: 0;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+  }
+  .content__right {
+    width: 30%;
+    height: 100%;
+    margin-left: 10px;
+    position: relative;
+    overflow: hidden;
+    .opacity {
+      @include opacity();
+    }
+    &:hover .opacity {
+      transition: all 0.3s ease-in-out;
+
+      bottom: 0;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

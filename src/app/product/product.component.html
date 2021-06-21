@@ -1,0 +1,58 @@
+<div class="container">
+  <h1>Product list</h1>
+  <div class="group">
+    <button class="create" routerLink="/product/new">New Product</button>
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Type something..." [(ngModel)]="term" />
+    </mat-form-field>
+  </div>
+
+  <div class="wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Category</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of pagination() | filter: term; let i = index">
+          <td>{{ product.id }}</td>
+          <td>
+            <img
+              src="assets/img/{{ product.image }}"
+              width="100"
+              height="100"
+            />
+          </td>
+          <td>{{ product.name }}</td>
+
+          <td>${{ product.price }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>{{ product.categoryId }}</td>
+          <td class="function">
+            <button class="edit" (click)="onEdit(product.id)">Edit</button>
+            <button class="delete" (click)="onDelete(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <router-outlet></router-outlet>
+  </div>
+  <div class="pagination">
+    <mat-paginator
+      [length]="this.products.length"
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10]"
+      (page)="onChangePage($event)"
+    >
+    </mat-paginator>
+  </div>
+</div>

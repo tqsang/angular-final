@@ -1,1 +1,44 @@
-<p>product-detail works!</p>
+<div class="container">
+  <div class="wrapper">
+    <div class="left">
+      <img src="assets/img/{{ product.image }}" />
+    </div>
+    <div class="right">
+      <h1>{{ product.name }}</h1>
+      <h2>{{ product.price }}</h2>
+      <div class="star">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="far fa-star"></i>
+      </div>
+      <p>{{ product.description }}</p>
+      <div class="footer">
+        <button>Add to card</button>
+      </div>
+    </div>
+  </div>
+  <div class="category">
+    <h2>Related Product</h2>
+    <div class="row">
+      <mat-card
+        class="example-card col-lg-2"
+        (click)="onShowDetail(item.id)"
+        *ngFor="let item of categoryList()"
+      >
+        <img
+          mat-card-image
+          src="assets/img/{{ item.image }}"
+          alt="{{ product.name }}"
+        />
+        <mat-card-content>
+          <h2>
+            {{ item.name }}
+          </h2>
+          <h3>${{ item.price }}</h3>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

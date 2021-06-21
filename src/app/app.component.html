@@ -1,11 +1,37 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <img src="assets/img/logo.svg" />
+    <mat-selection-list #shoes [multiple]="false">
+      <mat-list-option *ngFor="let item of listItem">
+        <a routerLink="{{ item.href }}">
+          <div class="flex">
+            <i class="{{ item.icon }} fa-2x"></i>
+            <p class="title__item">{{ item.label }}</p>
+          </div>
+        </a>
+      </mat-list-option>
+    </mat-selection-list>
   </mat-drawer>
   <div class="example-sidenav-content">
-    <button type="button" mat-button (click)="drawer.toggle()">
-      <img src="assets/img/menu.svg" />
-    </button>
+    <mat-toolbar>
+      <button
+        mat-icon-button
+        (click)="drawer.toggle()"
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="spacing"></div>
+      <button
+        mat-icon-button
+        class="example-icon favorite-icon"
+        aria-label="Example icon-button with heart icon"
+      >
+        <i class="fas fa-sign-in-alt fa-lg"></i>
+      </button>
+    </mat-toolbar>
   </div>
+
   <router-outlet></router-outlet>
 </mat-drawer-container>

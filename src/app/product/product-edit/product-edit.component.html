@@ -1,1 +1,73 @@
-<p>product-edit works!</p>
+<div class="wrapper">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <h2>Edit product</h2>
+    <mat-form-field appearance="outline">
+      <mat-label>Product Name</mat-label>
+      <input
+        matInput
+        placeholder="Type something..."
+        id="name"
+        name="name"
+        formControlName="name"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Category</mat-label>
+      <input
+        type="text"
+        placeholder="Pick one"
+        aria-label="category"
+        matInput
+        formControlName="categoryId"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of categories" [value]="option.name">
+          {{ option.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Product Price</mat-label>
+      <input
+        matInput
+        placeholder="Type something..."
+        id="price"
+        name="price"
+        formControlName="price"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Product Quantity</mat-label>
+      <input
+        matInput
+        placeholder="Type something..."
+        id="quantity"
+        name="quantity"
+        formControlName="quantity"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Product Description</mat-label>
+      <textarea
+        matInput
+        rows="5"
+        placeholder="Type something..."
+        id="description"
+        name="description"
+        formControlName="description"
+      ></textarea>
+    </mat-form-field>
+
+    <!-- <input id="image" name="image" type="file" formControlName="image" /> -->
+
+    <div class="function">
+      <button class="cancel" (click)="onCancel()">Cancel</button>
+      <button class="save" type="submit" [disabled]="!productForm.valid">
+        Save
+      </button>
+    </div>
+  </form>
+</div>

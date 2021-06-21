@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from './../product.service';
 import { Products } from './../../models/products.model';
 import { Component, Input, OnInit } from '@angular/core';
@@ -11,7 +12,10 @@ export class ProductItemComponent implements OnInit {
   @Input() product: Products;
   @Input() index: number;
 
-  constructor() {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {}
+  onShowDetail(id) {
+    this.router.navigate([`/detail/${id}`], { relativeTo: this.route });
+  }
 }
